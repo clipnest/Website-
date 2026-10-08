@@ -1,0 +1,330 @@
+const fs = require('fs');
+const path = require('path');
+
+const imgDir = path.join(__dirname, 'assets', 'img');
+
+function createSVG(width, height, content) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
+  <defs>
+    <!-- Realistic Wood Finishes -->
+    <linearGradient id="warmOak" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#E4C5A0" />
+      <stop offset="35%" stop-color="#CFA475" />
+      <stop offset="70%" stop-color="#B88653" />
+      <stop offset="100%" stop-color="#9C6B38" />
+    </linearGradient>
+    <linearGradient id="walnutRich" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C4033" />
+      <stop offset="60%" stop-color="#3D2817" />
+      <stop offset="100%" stop-color="#27180D" />
+    </linearGradient>
+
+    <!-- Metal Frame Extrusions -->
+    <linearGradient id="whiteExtrusion" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#ECEFF2" />
+      <stop offset="80%" stop-color="#D7DCE2" />
+      <stop offset="100%" stop-color="#BFC6D0" />
+    </linearGradient>
+    <linearGradient id="anthraciteMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#363C45" />
+      <stop offset="60%" stop-color="#23272E" />
+      <stop offset="100%" stop-color="#15171C" />
+    </linearGradient>
+
+    <!-- Fortune Brand Red Gradients -->
+    <linearGradient id="brandRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5193B" />
+      <stop offset="60%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#91081E" />
+    </linearGradient>
+
+    <!-- Glass & Acrylic -->
+    <linearGradient id="frostedGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#E8F1F5" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#B8D0E0" stop-opacity="0.65" />
+    </linearGradient>
+
+    <!-- Acoustic Fabric -->
+    <linearGradient id="fabricTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A4C" />
+      <stop offset="100%" stop-color="#0F1F2B" />
+    </linearGradient>
+
+    <!-- Realistic Lighting & Shadows -->
+    <radialGradient id="sunlightGlow" cx="75%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#FFEEDD" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#FFD4AA" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="floorGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1B1F27" />
+      <stop offset="40%" stop-color="#161920" />
+      <stop offset="100%" stop-color="#0D0F13" />
+    </linearGradient>
+
+    <!-- Ambient Shadow Filter -->
+    <filter id="deskShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  ${content}
+</svg>`;
+}
+
+// 1. Hero 1: Luxury Open-Plan Mumbai Corporate Workstation Floor (Architectural 3D Render Style)
+const hero01 = createSVG(1920, 1080, `
+  <!-- Architectural Interior Space -->
+  <rect width="1920" height="1080" fill="#13161D" />
+  
+  <!-- Floor with subtle reflections and grid lines -->
+  <polygon points="0,580 1920,580 1920,1080 0,1080" fill="url(#floorGrad)" />
+  <line x1="0" y1="580" x2="1920" y2="580" stroke="#252A36" stroke-width="2"/>
+  
+  <!-- Perspective Floor Tiles -->
+  <line x1="960" y1="580" x2="160" y2="1080" stroke="#222834" stroke-width="1.5" opacity="0.6"/>
+  <line x1="1240" y1="580" x2="800" y2="1080" stroke="#222834" stroke-width="1.5" opacity="0.6"/>
+  <line x1="1480" y1="580" x2="1420" y2="1080" stroke="#222834" stroke-width="1.5" opacity="0.6"/>
+  <line x1="1680" y1="580" x2="1920" y2="920" stroke="#222834" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Floor-to-Ceiling Architecture Windows (Right side) -->
+  <polygon points="1250,60 1920,0 1920,780 1250,680" fill="#181D26" />
+  <!-- Glass Panes with Mumbai City Skyline Silhouette -->
+  <g opacity="0.25">
+    <rect x="1350" y="380" width="60" height="260" fill="#8898AA" />
+    <rect x="1440" y="280" width="90" height="360" fill="#75889C" />
+    <rect x="1560" y="220" width="110" height="420" fill="#8898AA" />
+    <rect x="1700" y="320" width="80" height="320" fill="#687B8E" />
+    <rect x="1800" y="250" width="100" height="390" fill="#8898AA" />
+  </g>
+  <!-- Window Mullions -->
+  <line x1="1450" y1="40" x2="1450" y2="700" stroke="#363F4F" stroke-width="8"/>
+  <line x1="1680" y1="20" x2="1680" y2="730" stroke="#363F4F" stroke-width="8"/>
+  <line x1="1250" y1="360" x2="1920" y2="340" stroke="#363F4F" stroke-width="6"/>
+
+  <!-- Warm Sunbeam / Interior Illumination -->
+  <rect width="1920" height="1080" fill="url(#sunlightGlow)" />
+
+  <!-- Modern Acoustic Ceiling Baffles (Linear Lighting) -->
+  <g opacity="0.45">
+    <line x1="850" y1="120" x2="1350" y2="120" stroke="#EBF3FA" stroke-width="6" filter="url(#subtleGlow)"/>
+    <line x1="750" y1="180" x2="1450" y2="180" stroke="#EBF3FA" stroke-width="6" filter="url(#subtleGlow)"/>
+    <line x1="900" y1="240" x2="1550" y2="240" stroke="#EBF3FA" stroke-width="6" filter="url(#subtleGlow)"/>
+  </g>
+
+  <!-- High-End 4-Pod Linear Workstation Module in 3D Isometric View -->
+  <g transform="translate(700, 390)" filter="url(#deskShadow)">
+    <!-- Floor Contact Shadows -->
+    <ellipse cx="440" cy="460" rx="420" ry="80" fill="#05070A" opacity="0.8"/>
+
+    <!-- Desk Base Legs & Cable Tray Raceway (White powder coated steel) -->
+    <rect x="60" y="240" width="18" height="200" rx="4" fill="url(#whiteExtrusion)"/>
+    <rect x="420" y="340" width="20" height="200" rx="4" fill="url(#whiteExtrusion)"/>
+    <rect x="860" y="220" width="18" height="200" rx="4" fill="url(#whiteExtrusion)"/>
+    <rect x="500" y="120" width="16" height="200" rx="4" fill="url(#whiteExtrusion)"/>
+
+    <!-- Under-desk Modesty & Cable Spine (Fortune Red Line) -->
+    <polygon points="120,250 420,340 420,380 120,290" fill="#8A0A1F" />
+    <polygon points="420,340 820,220 820,260 420,380" fill="#C8102E" />
+
+    <!-- 25mm Pre-laminated Natural Oak Table Tops with Beveled PVC Edge Banding -->
+    <polygon points="40,220 460,340 880,210 460,110" fill="url(#warmOak)"/>
+    <!-- Edge Banding Depth (25mm) -->
+    <polygon points="40,220 460,340 460,352 40,232" fill="#9C6B38"/>
+    <polygon points="460,340 880,210 880,222 460,352" fill="#835728"/>
+
+    <!-- Dual Privacy Tiling Partition Screen (Acoustic Fabric + Back Painted Red Glass) -->
+    <!-- Screen 1: Acoustic Charcoal Fabric -->
+    <polygon points="260,165 470,225 470,115 260,65" fill="url(#fabricTeal)" />
+    <!-- Screen 2: Fortune Red Glass Top Tile -->
+    <polygon points="260,115 470,165 470,115 260,65" fill="url(#brandRedGrad)" opacity="0.95"/>
+    <polygon points="470,225 680,165 680,65 470,115" fill="#8A0A1F" opacity="0.95"/>
+    <!-- Aluminium Partition Beading Edge -->
+    <line x1="260" y1="65" x2="470" y2="115" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
+    <line x1="470" y1="115" x2="680" y2="65" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
+    <line x1="470" y1="65" x2="470" y2="225" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+
+    <!-- Wire Management Pop-up Box on Desktops -->
+    <polygon points="210,190 260,205 250,215 200,200" fill="#14171E" stroke="#5C6677" stroke-width="2"/>
+    <polygon points="620,190 670,175 680,185 630,200" fill="#14171E" stroke="#5C6677" stroke-width="2"/>
+
+    <!-- High-End Mesh Ergonomic Chairs -->
+    <!-- Chair 1 (Left Desk) -->
+    <g transform="translate(230, 260)">
+      <ellipse cx="0" cy="55" rx="36" ry="12" fill="#000000" opacity="0.5"/>
+      <ellipse cx="0" cy="20" rx="34" ry="24" fill="#242B35" stroke="#3D4756" stroke-width="3"/>
+      <!-- Ergonomic Curved Mesh Back -->
+      <path d="M -24,15 C -28,-40 28,-40 24,15 Z" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/>
+      <!-- Headrest -->
+      <rect x="-14" y="-55" width="28" height="14" rx="6" fill="#242B35"/>
+    </g>
+    <!-- Chair 2 (Right Desk) -->
+    <g transform="translate(680, 260)">
+      <ellipse cx="0" cy="55" rx="36" ry="12" fill="#000000" opacity="0.5"/>
+      <ellipse cx="0" cy="20" rx="34" ry="24" fill="#242B35" stroke="#3D4756" stroke-width="3"/>
+      <path d="M -24,15 C -28,-40 28,-40 24,15 Z" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/>
+      <rect x="-14" y="-55" width="28" height="14" rx="6" fill="#242B35"/>
+    </g>
+  </g>
+
+  <!-- Ambient Cinematic Depth Vignette -->
+  <rect width="1920" height="1080" fill="none" stroke="#000" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Premium Spec Label Badge (Top-Right) -->
+  <g transform="translate(1420, 60)">
+    <rect width="440" height="52" rx="10" fill="#14171F" stroke="#C8102E" stroke-width="1.5" opacity="0.95"/>
+    <circle cx="32" cy="26" r="8" fill="#1E7B4A"/>
+    <text x="56" y="32" font-family="'Manrope', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF">ARCHITECTURAL SPEC: 4-POD LINEAR</text>
+  </g>
+`);
+
+// 2. Hero 2: Luxury Boardroom Suite
+const hero02 = createSVG(1920, 1080, `
+  <rect width="1920" height="1080" fill="#11141A" />
+  <polygon points="0,520 1920,520 1920,1080 0,1080" fill="#0C0E12" />
+  <radialGradient id="chandelierGlow" cx="50%" cy="20%" r="50%">
+    <stop offset="0%" stop-color="#FFE0B2" stop-opacity="0.3" />
+    <stop offset="100%" stop-color="#11141A" stop-opacity="0" />
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#chandelierGlow)" />
+  
+  <!-- 16-Seater Executive Modular Conference Table in 3D -->
+  <g transform="translate(740, 360)" filter="url(#deskShadow)">
+    <ellipse cx="440" cy="280" rx="460" ry="170" fill="url(#walnutRich)" />
+    <ellipse cx="440" cy="272" rx="454" ry="164" fill="url(#warmOak)" />
+    <!-- Center Inset Black Glass Wire Flap -->
+    <rect x="260" y="235" width="360" height="65" rx="8" fill="#14171E" stroke="#8A9099" stroke-width="3"/>
+    <line x1="380" y1="235" x2="380" y2="300" stroke="#C8102E" stroke-width="3"/>
+    <line x1="500" y1="235" x2="500" y2="300" stroke="#C8102E" stroke-width="3"/>
+    
+    <!-- Executive High-Back Leather Chairs -->
+    <g transform="translate(120, 270)"><circle cx="0" cy="0" r="38" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/><rect x="-18" y="-40" width="36" height="20" rx="6" fill="#2E3744"/></g>
+    <g transform="translate(760, 270)"><circle cx="0" cy="0" r="38" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/><rect x="-18" y="-40" width="36" height="20" rx="6" fill="#2E3744"/></g>
+    <g transform="translate(280, 130)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(440, 120)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(600, 130)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(280, 410)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(440, 420)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(600, 410)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+  </g>
+  <g transform="translate(1420, 60)">
+    <rect width="440" height="52" rx="10" fill="#14171F" stroke="#C8102E" stroke-width="1.5" opacity="0.95"/>
+    <text x="220" y="32" font-family="'Manrope', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">BOARDROOM SUITE: POP-UP AV INTEGRATED</text>
+  </g>
+`);
+
+// 3. Hero 3: Acoustic Cubicle System
+const hero03 = createSVG(1920, 1080, `
+  <rect width="1920" height="1080" fill="#13171F" />
+  <polygon points="0,540 1920,540 1920,1080 0,1080" fill="#0C0E12" />
+  
+  <g transform="translate(720, 340)" filter="url(#deskShadow)">
+    <!-- 4-Cluster Partition Cubicles -->
+    <polygon points="60,200 440,320 820,200 440,90" fill="url(#warmOak)"/>
+    <!-- Tall Full-Height Fabric Partitions (1200mm high) -->
+    <polygon points="60,200 440,320 440,110 60,0" fill="url(#fabricTeal)" />
+    <polygon points="440,320 820,200 820,0 440,110" fill="#162A38" />
+    <polygon points="440,110 440,-80 440,-80 440,110" stroke="#C8102E" stroke-width="6"/>
+    <!-- Frosted Glass Topper Panels -->
+    <polygon points="60,0 440,110 440,40 60,-70" fill="url(#frostedGlass)" />
+    <polygon points="440,110 820,0 820,-70 440,40" fill="url(#frostedGlass)" />
+  </g>
+  <g transform="translate(1420, 60)">
+    <rect width="440" height="52" rx="10" fill="#14171F" stroke="#C8102E" stroke-width="1.5" opacity="0.95"/>
+    <text x="220" y="32" font-family="'Manrope', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">ACOUSTIC CUBICLES: 1200MM FABRIC + GLASS</text>
+  </g>
+`);
+
+// Ultra-Attractive Realistic Category Cards (8 cards, 500x380)
+const categories = [
+  { file: 'cat-linear.svg', title: 'Linear Workstation', type: 'Open Plan Desking', badge: 'Best Seller', highlight: '#C8102E' },
+  { file: 'cat-cockpit.svg', title: 'Cockpit Workstation', type: 'Focus Pods', badge: 'High Privacy', highlight: '#1F2328' },
+  { file: 'cat-120degree.svg', title: '120° Workstation', type: 'Collaborative Cluster', badge: 'Space Saving', highlight: '#B9824F' },
+  { file: 'cat-cubicle.svg', title: 'Modular Cubicles', type: 'Acoustic Partition', badge: 'BIFMA Tested', highlight: '#0B7A6E' },
+  { file: 'cat-conference.svg', title: 'Conference Table', type: 'Boardroom Suite', badge: 'Pop-Up AV', highlight: '#C8102E' },
+  { file: 'cat-executive.svg', title: 'Executive Desks', type: 'Leadership Cabins', badge: 'Premium Finish', highlight: '#1F2328' },
+  { file: 'cat-storage.svg', title: 'Storage & Pedestals', type: 'Central Locking', badge: 'Heavy Duty', highlight: '#B9824F' },
+  { file: 'cat-chairs.svg', title: 'Ergonomic Chairs', type: 'Breathable Mesh', badge: 'Lumbar Support', highlight: '#0B7A6E' }
+];
+
+categories.forEach(cat => {
+  const svg = createSVG(500, 380, `
+    <!-- Clean Studio Background -->
+    <rect width="500" height="380" fill="#F8F9FA" />
+    <radialGradient id="cardSpot_${cat.file.replace('.svg','')}" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#EDF1F5" />
+      <stop offset="100%" stop-color="#DFE4EA" />
+    </radialGradient>
+    <rect width="500" height="380" fill="url(#cardSpot_${cat.file.replace('.svg','')})" />
+
+    <!-- Floor Pedestal Platform -->
+    <ellipse cx="250" cy="275" rx="190" ry="45" fill="#CBD3DC" opacity="0.6"/>
+    <ellipse cx="250" cy="270" rx="180" ry="40" fill="#FFFFFF" />
+
+    <!-- 3D Furniture Render in Center -->
+    <g transform="translate(130, 95)" filter="url(#deskShadow)">
+      <!-- Main Worksurface (Oak) -->
+      <polygon points="0,75 120,20 240,75 120,130" fill="url(#warmOak)" />
+      <polygon points="0,75 120,130 120,142 0,87" fill="#A87542" />
+      <polygon points="120,130 240,75 240,87 120,142" fill="#885A2E" />
+
+      <!-- Extrusion Structure Legs -->
+      <rect x="25" y="85" width="10" height="90" rx="2" fill="url(#whiteExtrusion)"/>
+      <rect x="115" y="135" width="10" height="90" rx="2" fill="url(#whiteExtrusion)"/>
+      <rect x="205" y="85" width="10" height="90" rx="2" fill="url(#whiteExtrusion)"/>
+
+      <!-- Screen Partition -->
+      <polygon points="60,50 170,100 170,40 60,-10" fill="${cat.highlight === '#C8102E' ? 'url(#brandRedGrad)' : 'url(#fabricTeal)'}" />
+      <polygon points="60,-10 170,40 170,30 60,-20" fill="#FFFFFF" opacity="0.8"/>
+    </g>
+
+    <!-- Top Badge Tag -->
+    <g transform="translate(24, 24)">
+      <rect width="110" height="28" rx="14" fill="${cat.highlight}" />
+      <text x="55" y="18" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#FFFFFF" text-anchor="middle">${cat.badge}</text>
+    </g>
+
+    <!-- Category Pill -->
+    <g transform="translate(350, 24)">
+      <rect width="126" height="28" rx="6" fill="#FFFFFF" stroke="#D7DCE2" stroke-width="1.5" />
+      <text x="63" y="18" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#4A5058" text-anchor="middle">${cat.type}</text>
+    </g>
+
+    <!-- Bottom Feature Indicator Line -->
+    <rect x="24" y="340" width="452" height="2" fill="#E6E8EB" />
+  `);
+  fs.writeFileSync(path.join(imgDir, cat.file), svg, 'utf8');
+});
+
+// Realistic Material Swatches (4 finishes with high texture details)
+const finishes = [
+  { file: 'finish-laminate.svg', name: 'High-Pressure Laminate', desc: '1.0mm Scratch-Resistant Warm Oak', fill: 'url(#warmOak)' },
+  { file: 'finish-fabric.svg', name: 'Acoustic Fabric Tiles', desc: 'Sound-Dampening Tackable Weave', fill: 'url(#fabricTeal)' },
+  { file: 'finish-powder.svg', name: 'Powder Coated Aluminium', desc: 'Pure White & Anthracite Grey', fill: 'url(#anthraciteMetal)' },
+  { file: 'finish-glass.svg', name: 'Back Painted Glass', desc: '4mm Toughened Fortune Red & White', fill: 'url(#brandRedGrad)' }
+];
+
+finishes.forEach(f => {
+  const svg = createSVG(340, 340, `
+    <rect width="340" height="340" fill="#FFFFFF" />
+    <rect x="12" y="12" width="316" height="230" rx="12" fill="${f.fill}" />
+    <!-- Gloss Sheen Reflection -->
+    <path d="M 12,12 L 200,12 L 120,242 L 12,242 Z" fill="#FFFFFF" opacity="0.12" rx="12" />
+    <rect x="12" y="254" width="316" height="74" rx="8" fill="#F8F9FA" />
+    <text x="24" y="280" font-family="'Manrope', sans-serif" font-weight="700" font-size="15" fill="#1F2328">${f.name}</text>
+    <text x="24" y="306" font-family="'Inter', sans-serif" font-weight="500" font-size="12" fill="#5B626B">${f.desc}</text>
+  `);
+  fs.writeFileSync(path.join(imgDir, f.file), svg, 'utf8');
+});
+
+fs.writeFileSync(path.join(imgDir, 'hero-new-01.svg'), hero01, 'utf8');
+fs.writeFileSync(path.join(imgDir, 'hero-slide-2.svg'), hero02, 'utf8');
+fs.writeFileSync(path.join(imgDir, 'hero-slide-3.svg'), hero03, 'utf8');
+
+console.log('Successfully generated upgraded photorealistic architectural assets.');
