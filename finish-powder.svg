@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="340" height="340">
+  <defs>
+    <!-- Realistic Wood Finishes -->
+    <linearGradient id="warmOak" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#E4C5A0" />
+      <stop offset="35%" stop-color="#CFA475" />
+      <stop offset="70%" stop-color="#B88653" />
+      <stop offset="100%" stop-color="#9C6B38" />
+    </linearGradient>
+    <linearGradient id="walnutRich" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C4033" />
+      <stop offset="60%" stop-color="#3D2817" />
+      <stop offset="100%" stop-color="#27180D" />
+    </linearGradient>
+
+    <!-- Metal Frame Extrusions -->
+    <linearGradient id="whiteExtrusion" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#ECEFF2" />
+      <stop offset="80%" stop-color="#D7DCE2" />
+      <stop offset="100%" stop-color="#BFC6D0" />
+    </linearGradient>
+    <linearGradient id="anthraciteMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#363C45" />
+      <stop offset="60%" stop-color="#23272E" />
+      <stop offset="100%" stop-color="#15171C" />
+    </linearGradient>
+
+    <!-- Fortune Brand Red Gradients -->
+    <linearGradient id="brandRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5193B" />
+      <stop offset="60%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#91081E" />
+    </linearGradient>
+
+    <!-- Glass & Acrylic -->
+    <linearGradient id="frostedGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#E8F1F5" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#B8D0E0" stop-opacity="0.65" />
+    </linearGradient>
+
+    <!-- Acoustic Fabric -->
+    <linearGradient id="fabricTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A4C" />
+      <stop offset="100%" stop-color="#0F1F2B" />
+    </linearGradient>
+
+    <!-- Realistic Lighting & Shadows -->
+    <radialGradient id="sunlightGlow" cx="75%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#FFEEDD" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#FFD4AA" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="floorGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1B1F27" />
+      <stop offset="40%" stop-color="#161920" />
+      <stop offset="100%" stop-color="#0D0F13" />
+    </linearGradient>
+
+    <!-- Ambient Shadow Filter -->
+    <filter id="deskShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+    <rect width="340" height="340" fill="#FFFFFF" />
+    <rect x="12" y="12" width="316" height="230" rx="12" fill="url(#anthraciteMetal)" />
+    <!-- Gloss Sheen Reflection -->
+    <path d="M 12,12 L 200,12 L 120,242 L 12,242 Z" fill="#FFFFFF" opacity="0.12" rx="12" />
+    <rect x="12" y="254" width="316" height="74" rx="8" fill="#F8F9FA" />
+    <text x="24" y="280" font-family="'Manrope', sans-serif" font-weight="700" font-size="15" fill="#1F2328">Powder Coated Aluminium</text>
+    <text x="24" y="306" font-family="'Inter', sans-serif" font-weight="500" font-size="12" fill="#5B626B">Pure White & Anthracite Grey</text>
+  
+</svg>

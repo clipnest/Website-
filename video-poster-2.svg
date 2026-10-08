@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1D24" />
+      <stop offset="100%" stop-color="#0E1014" />
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C29260" />
+      <stop offset="50%" stop-color="#DEB080" />
+      <stop offset="100%" stop-color="#A87542" />
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2E4E8" />
+      <stop offset="100%" stop-color="#9BA1AB" />
+    </linearGradient>
+    <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#8A0A1F" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+  
+  <rect width="800" height="450" fill="#11141A" />
+  <circle cx="400" cy="225" r="140" fill="#1E2328" />
+  <g transform="translate(260, 160)">
+    <ellipse cx="140" cy="65" rx="140" ry="55" fill="url(#woodGrad)" />
+  </g>
+  <rect x="30" y="30" width="220" height="32" rx="6" fill="#0B7A6E" />
+  <text x="140" y="52" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" text-anchor="middle">SHOWROOM DEMO &amp; WALKTHROUGH</text>
+
+</svg>

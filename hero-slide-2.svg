@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Realistic Wood Finishes -->
+    <linearGradient id="warmOak" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#E4C5A0" />
+      <stop offset="35%" stop-color="#CFA475" />
+      <stop offset="70%" stop-color="#B88653" />
+      <stop offset="100%" stop-color="#9C6B38" />
+    </linearGradient>
+    <linearGradient id="walnutRich" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C4033" />
+      <stop offset="60%" stop-color="#3D2817" />
+      <stop offset="100%" stop-color="#27180D" />
+    </linearGradient>
+
+    <!-- Metal Frame Extrusions -->
+    <linearGradient id="whiteExtrusion" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#ECEFF2" />
+      <stop offset="80%" stop-color="#D7DCE2" />
+      <stop offset="100%" stop-color="#BFC6D0" />
+    </linearGradient>
+    <linearGradient id="anthraciteMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#363C45" />
+      <stop offset="60%" stop-color="#23272E" />
+      <stop offset="100%" stop-color="#15171C" />
+    </linearGradient>
+
+    <!-- Fortune Brand Red Gradients -->
+    <linearGradient id="brandRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5193B" />
+      <stop offset="60%" stop-color="#C8102E" />
+      <stop offset="100%" stop-color="#91081E" />
+    </linearGradient>
+
+    <!-- Glass & Acrylic -->
+    <linearGradient id="frostedGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#E8F1F5" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#B8D0E0" stop-opacity="0.65" />
+    </linearGradient>
+
+    <!-- Acoustic Fabric -->
+    <linearGradient id="fabricTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A4C" />
+      <stop offset="100%" stop-color="#0F1F2B" />
+    </linearGradient>
+
+    <!-- Realistic Lighting & Shadows -->
+    <radialGradient id="sunlightGlow" cx="75%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#FFEEDD" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#FFD4AA" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="floorGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1B1F27" />
+      <stop offset="40%" stop-color="#161920" />
+      <stop offset="100%" stop-color="#0D0F13" />
+    </linearGradient>
+
+    <!-- Ambient Shadow Filter -->
+    <filter id="deskShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <rect width="1920" height="1080" fill="#11141A" />
+  <polygon points="0,520 1920,520 1920,1080 0,1080" fill="#0C0E12" />
+  <radialGradient id="chandelierGlow" cx="50%" cy="20%" r="50%">
+    <stop offset="0%" stop-color="#FFE0B2" stop-opacity="0.3" />
+    <stop offset="100%" stop-color="#11141A" stop-opacity="0" />
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#chandelierGlow)" />
+  
+  <!-- 16-Seater Executive Modular Conference Table in 3D -->
+  <g transform="translate(740, 360)" filter="url(#deskShadow)">
+    <ellipse cx="440" cy="280" rx="460" ry="170" fill="url(#walnutRich)" />
+    <ellipse cx="440" cy="272" rx="454" ry="164" fill="url(#warmOak)" />
+    <!-- Center Inset Black Glass Wire Flap -->
+    <rect x="260" y="235" width="360" height="65" rx="8" fill="#14171E" stroke="#8A9099" stroke-width="3"/>
+    <line x1="380" y1="235" x2="380" y2="300" stroke="#C8102E" stroke-width="3"/>
+    <line x1="500" y1="235" x2="500" y2="300" stroke="#C8102E" stroke-width="3"/>
+    
+    <!-- Executive High-Back Leather Chairs -->
+    <g transform="translate(120, 270)"><circle cx="0" cy="0" r="38" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/><rect x="-18" y="-40" width="36" height="20" rx="6" fill="#2E3744"/></g>
+    <g transform="translate(760, 270)"><circle cx="0" cy="0" r="38" fill="#1A1F26" stroke="#C8102E" stroke-width="3"/><rect x="-18" y="-40" width="36" height="20" rx="6" fill="#2E3744"/></g>
+    <g transform="translate(280, 130)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(440, 120)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(600, 130)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(280, 410)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(440, 420)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+    <g transform="translate(600, 410)"><circle cx="0" cy="0" r="34" fill="#1A1F26" stroke="#8A9099" stroke-width="2"/></g>
+  </g>
+  <g transform="translate(1420, 60)">
+    <rect width="440" height="52" rx="10" fill="#14171F" stroke="#C8102E" stroke-width="1.5" opacity="0.95"/>
+    <text x="220" y="32" font-family="'Manrope', sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">BOARDROOM SUITE: POP-UP AV INTEGRATED</text>
+  </g>
+
+</svg>
